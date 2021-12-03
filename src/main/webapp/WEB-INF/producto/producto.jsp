@@ -7,7 +7,7 @@
 <body>
 <jsp:include page='../template/navbar.jsp'/>
 	<div class="container">
-	<h1>Usuarios</h1>
+	<h1>Producto</h1>
 			<hr>
 	<h2>Crear producto</h2>
 	

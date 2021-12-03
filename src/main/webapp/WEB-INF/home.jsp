@@ -8,7 +8,7 @@
 <body>
 	<jsp:include page='template/navbar.jsp'/>
 	<div class="container">
-	<h1>Hola ${nombre_usuario} de id: ${usuario_id}</h1>
+	<h1>Hola ${nombre_usuario} Bienvenido</h1>
 	<hr>
 
 	
