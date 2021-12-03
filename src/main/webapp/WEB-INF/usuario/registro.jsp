@@ -15,12 +15,12 @@
 		
 			<form:label path="nombre" class="col-sm-2 col-form-label">Nombre:</form:label>
 			<form:input type="text" path="nombre" class="form-control" />
-			<form:errors path="*" cssClass="errorblock" element="div"/>
+			<form:errors path="nombre" cssClass="errorblock" element="div"/>
     
 			<br>
 			<form:label path="apellido" class="col-sm-2 col-form-label">Apellido:</form:label>
 			<form:input type="text" path="apellido" class="form-control"/>
-			<form:errors path="*" cssClass="errorblock" element="div"/>
+			<form:errors path="apellido" cssClass="errorblock" element="div"/>
 			
 			<br>
 			<form:label path="rut" class="col-sm-2 col-form-label">RUT:</form:label>
@@ -28,6 +28,11 @@
 			<br>
 			<form:label path="email" class="col-sm-2 col-form-label">Email</form:label>
 			<form:input type="email" path="email" class="form-control"/>
+			<br>
+			<form:label path="edad" class="col-sm-2 col-form-label">Edad</form:label>
+			<form:input type="number" path="edad" class="form-control"/>
+			<form:errors path="edad" cssClass="errorblock" element="div"/>
+			
 			<br>
 			<form:label path="password" class="col-sm-2 col-form-label">Password:</form:label>
 			<form:input type="password" path="password" class="form-control"/>

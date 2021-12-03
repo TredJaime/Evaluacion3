@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity//representacion de la entidad modelo
@@ -32,6 +33,8 @@ public class Usuario {
     @Size(min = 1, max = 10, message = "Debe tener entre 1 y 10 caracteres")
 	private String apellido;
 	
+	@NotNull(message = "La edad no puede estar vacía")
+	private Integer edad;
 	private String rut;
 	private String email;
 	private String password;
@@ -53,10 +56,11 @@ public class Usuario {
 	public Usuario(
 			@NotNull(message = "Campo nombre no puedo estar vacio") @Size(min = 1, max = 10, message = "Debe tener entre 1 y 10 caracteres") String nombre,
 			@NotNull(message = "Campo nombre no puedo estar vacio") @Size(min = 1, max = 10, message = "Debe tener entre 1 y 10 caracteres") String apellido,
-			String rut, String email, String password, String passwordConfirmation, List<Role> roles) {
+			Integer edad, String rut, String email, String password, String passwordConfirmation, List<Role> roles) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.edad = edad;
 		this.rut = rut;
 		this.email = email;
 		this.password = password;
@@ -86,6 +90,14 @@ public class Usuario {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
 	}
 
 	public String getRut() {
