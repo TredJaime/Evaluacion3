@@ -87,7 +87,8 @@ public class UsuarioController {
 		    cookieClearingLogoutHandler.logout(request, response, null);
 		    securityContextLogoutHandler.logout(request, response, null);
 		    
-		    return "redirect:/login";
+		    return "redirect:/home";
+		   
 		}
 		
 }
