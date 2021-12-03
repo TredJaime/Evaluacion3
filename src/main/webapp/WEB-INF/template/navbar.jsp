@@ -19,7 +19,7 @@
           <a class="nav-link" href="/categoria">Categoria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tienda">Tienda</a>
+          <a class="nav-link" href="/tienda">Tienda</a>
         </li>
        <li>
        	

@@ -25,78 +25,73 @@ public class Producto {
 		@ManyToOne(fetch = FetchType.LAZY)
 		@JoinColumn(name="categoria_id")
 		private Categoria categoria;
-	
-	
-	
-	public Producto() {
-		super();
-	}
+		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="carrito_id")
+		private Carrito carrito;
 
+		public Producto() {
+			super();
+		}
 
-	public Producto(String nombre, Integer valor, String descripcion) {
-		super();
-		this.nombre = nombre;
-		this.valor = valor;
-		this.descripcion = descripcion;
-	}
+		public Producto(Long id, String nombre, Integer valor, String descripcion, Categoria categoria,
+				Carrito carrito) {
+			super();
+			this.id = id;
+			this.nombre = nombre;
+			this.valor = valor;
+			this.descripcion = descripcion;
+			this.categoria = categoria;
+			this.carrito = carrito;
+		}
 
-	
-	
+		public Long getId() {
+			return id;
+		}
 
-	@Override
-	public String toString() {
-		return "Producto [nombre=" + nombre + ", valor=" + valor + ", descripcion=" + descripcion + "]";
-	}
+		public void setId(Long id) {
+			this.id = id;
+		}
 
+		public String getNombre() {
+			return nombre;
+		}
 
-	public String getNombre() {
-		return nombre;
-	}
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
 
+		public Integer getValor() {
+			return valor;
+		}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+		public void setValor(Integer valor) {
+			this.valor = valor;
+		}
 
+		public String getDescripcion() {
+			return descripcion;
+		}
 
-	public Integer getValor() {
-		return valor;
-	}
+		public void setDescripcion(String descripcion) {
+			this.descripcion = descripcion;
+		}
 
+		public Categoria getCategoria() {
+			return categoria;
+		}
 
-	public void setValor(Integer valor) {
-		this.valor = valor;
-	}
+		public void setCategoria(Categoria categoria) {
+			this.categoria = categoria;
+		}
 
+		public Carrito getCarrito() {
+			return carrito;
+		}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+		public void setCarrito(Carrito carrito) {
+			this.carrito = carrito;
+		}
 	
 	
 	
