@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Usuario;
 import com.nttdata.services.UsuarioService;
@@ -28,20 +29,20 @@ public class UsuarioController {
 	UsuarioService usuarioService;
 	
 	//desplegar inicialmente el jsp
-		@RequestMapping("")
-		public String usuario(@ModelAttribute("usuario") Usuario usuario,
-				Model model) {
-			//List<Usuario> listaUsuarios= usuarioService.obtenerListaUsuarios();
-			//lista de usuarios
-			//model.addAttribute("listaUsuarios", usuarioService.obtenerListaUsuarios());
-			//model.addAttribute("listaProyectos", proyectoService.getAll());
-			//usuarioService.findAllUsuariosNombres();
-			//List<Object[]> oUsuarios = usuarioService.findAllUsuariosNombreApellido();
-			//oUsuarios.get(0);
-			//List<Usuario> lUsuario=usuarioService.obtenerUsuarioWhereId(5L);
-			
-			return "usuario/usuario.jsp";
-		}
+	@RequestMapping("")
+	public String usuario(@ModelAttribute("usuario") Usuario usuario,
+			Model model) {
+		//List<Usuario> listaUsuarios= usuarioService.obtenerListaUsuarios();
+		//lista de usuarios
+		model.addAttribute("listaUsuarios", usuarioService.obtenerListaUsuarios());
+		
+		
+		
+		return "usuario/usuario.jsp";
+	}
+		
+		
+		
 		/*http://localhost:8080/usuario/registrarjsp */
 		@RequestMapping("/registrarjsp")
 		public String registrarjsp(@ModelAttribute("usuario") Usuario usuario) {
@@ -89,6 +90,19 @@ public class UsuarioController {
 		    
 		    return "redirect:/home";
 		   
+		}
+		
+		@RequestMapping("/eliminar")
+		//@DeleteMapping
+		public String eliminarUsuario(@RequestParam("id") Long id) {
+			
+			Usuario usuario = usuarioService.buscarUsuarioId(id);
+			
+			if(usuario !=null) {
+				usuarioService.eliminarUsuarioObjeto(usuario);
+			}
+			
+			return "redirect:/usuario";
 		}
 		
 }

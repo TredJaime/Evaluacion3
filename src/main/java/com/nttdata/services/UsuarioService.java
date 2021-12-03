@@ -73,5 +73,22 @@ public boolean loginUsuario(String email, String password) {
 		public Usuario findByNombre(String nombre) {
 			return usuarioRepository.findByNombre(nombre);
 		}
+
+
+		public List<Usuario> obtenerListaUsuarios() {
+			
+			return (List<Usuario>) usuarioRepository.findAll();
+		}
+
+
+		public Usuario buscarUsuarioId(Long id) {
+			return usuarioRepository.findById(id).get();
+		}
+
+
+		public void eliminarUsuarioObjeto(Usuario usuario) {
+			usuarioRepository.delete(usuario);
+			
+		}
 		
 }
