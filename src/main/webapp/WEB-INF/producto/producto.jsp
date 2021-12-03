@@ -43,7 +43,6 @@
 		      <th scope="col">Valor</th>
 		      <th scope="col">Descripcion</th>
 		       <th scope="col">Categoria</th>
-		      <th scope="col">Acciones</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -52,8 +51,10 @@
 			      <th scope="row">${producto.getId()}</th>
 			      <td>${producto.getNombre()}</td>
 			      <td>${producto.getValor()}</td>
-			      <td>${producto.getDescripcion()}</td>
-			      <td>${producto.getCategoria().getNombre()}</td>
+			 	  <td>${producto.getDescripcion()}</td>
+			 	  <td>${producto.getNombre()}</td>
+			      
+			    <!--        <td>${producto.getCategoria().getNombre()}</td>
 			      <td>
 			      <a href="/producto/${producto.getId()}/editarP" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
 			
@@ -63,7 +64,7 @@
 				      	<input type="hidden" name="id" value="${producto.getId()}">
 				      	<input type="submit" value="X">
 				      </form>
-			      </td>
+			      </td> -->
 			    </tr>
 		    </c:forEach>
 		  </tbody>

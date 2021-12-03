@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.management.relation.Role;
+import javax.validation.Valid;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,14 @@ public boolean loginUsuario(String email, String password) {
 
 		public void eliminarUsuarioObjeto(Usuario usuario) {
 			usuarioRepository.delete(usuario);
+			
+		}
+
+
+		public void updateUsuario(@Valid Usuario usuario) {
+			if(usuarioRepository.existsById(usuario.getId())){
+				usuarioRepository.save(usuario);
+			}	
 			
 		}
 		

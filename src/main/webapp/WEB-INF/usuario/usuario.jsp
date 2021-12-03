@@ -32,7 +32,7 @@
 			      <td>${usuario.getApellido()}</td>
 				  <td>${usuario.getEmail()}</td>
 			      <td>
-			      <a href="/usuario/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
+			      <a href="/usuario/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button" target="_blank" >Editar</a>
 			      </td>
 			      <td>
 				      <form action="/usuario/eliminar" method="get">
