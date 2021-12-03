@@ -17,8 +17,6 @@
 		      <th scope="col">Descripcion</th>
 		       <th scope="col">Categoria</th>
 		      <th scope="col">Cantidad</th>
-		      <th scope="col">ID CATE</th>
-		      <th scope="col">Buscar por categoria</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -29,7 +27,6 @@
 			      <td>${producto.getValor()}</td>
 			      <td>${producto.getDescripcion()}</td>
 			      <td>${producto.getCategoria().getNombre()}</td>
-			      <td>${producto.getCategoria().getId()}</td>
 				  <td>
 				        <form action="/usuario/carrito" method="post">
 				      	<input type="number" name="cantidad">
@@ -42,31 +39,35 @@
 		  </tbody>
 		</table>	
 		
+		
+		<br>
+		
+		<h4>Buscar por categoria</h4>
+		
+		 <form action="/tienda/buscar" method="get">
+			<input type="text" name="nombre">
+			<input type="submit" value="Buscar">
+		</form>
+		
 		<!-- TABLA BUSCAR -->
+		
 		<table class="table">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">Deporte</th>
-		      <th scope="col">Pistola</th>
-		      <th scope="col">auto</th>
+		      <th scope="col">Nombre categoria</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<c:forEach items="${listaProducto}" var="producto">
+		  	<c:forEach items="${il}" var="categoria">
 			    <tr>
-			      <th scope="row">${producto.getId()}</th>
-			      <td>${producto.getNombre()}</td>
-			      <td>${producto.getValor()}</td>
-			      <td>${producto.getDescripcion()}</td>
-			      <td>${producto.getCategoria().getNombre()}</td>
+			      <th scope="row">${categoria.getId()}</th>
+			      <td>${categoria.getNombre()}</td>
+			     
 			    </tr>
 		    </c:forEach>
 		  </tbody>
 		</table>	
-		
-		
-		
 		
 		
 		

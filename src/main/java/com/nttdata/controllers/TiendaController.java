@@ -1,12 +1,18 @@
 package com.nttdata.controllers;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nttdata.models.Categoria;
 import com.nttdata.models.Producto;
+import com.nttdata.models.Usuario;
 import com.nttdata.services.CategoriaService;
 import com.nttdata.services.ProductoService;
 
@@ -24,11 +30,29 @@ public class TiendaController {
 		
 		model.addAttribute("listaCategoria", categoriaService.obtenerListaCategoria());
 		model.addAttribute("listaProducto", productoService.obtenerListaProducto());
+	
 		
 		return "tienda/tienda.jsp";
 	}
 	
 	
-	
-	
+	@RequestMapping("/buscar")
+	public String login(@RequestParam("nombre")String nombre, @ModelAttribute("usuario") Usuario usuario,
+			Model model) {
+		System.out.println(nombre);
+		List<Categoria> listaCa=categoriaService.findByNombre(nombre);
+		for (int i = 0; i < listaCa.size(); i++) {
+			if(nombre.equals(listaCa.get(i).getNombre())) {
+				
+				
+				
+				return "redirect:/tienda";
+			}
+			
+		}
+		
+		return "redirect:/tienda";
+	}
 }
+	
+

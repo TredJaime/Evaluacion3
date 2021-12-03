@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nttdata.models.Categoria;
 import com.nttdata.repositories.CategoriaRepository;
+import com.nttdata.repositories.UsuarioRepository;
 
 @Service
 public class CategoriaService {
@@ -24,4 +25,11 @@ public class CategoriaService {
 	public List<Categoria> obtenerListaCategoria() {
 		return (List<Categoria>) categoriaRepository.findAll();
 	}
+
+	public List<Categoria> findByNombre(String nombre) {
+		return categoriaRepository.findByNombre(nombre);
+	}
+	
+	
+	
 }
