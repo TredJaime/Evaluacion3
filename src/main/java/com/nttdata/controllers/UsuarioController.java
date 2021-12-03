@@ -50,20 +50,22 @@ public class UsuarioController {
 
 			return "usuario/registro.jsp";
 		}
-		
-		@RequestMapping("/registrar")
-		public String registrar(@Valid @ModelAttribute("usuario") Usuario usuario)
+	
+		@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+		public String registrar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult)
 		{
-			Usuario usuario2 = usuarioService.findByEmail(usuario.getEmail());
-			if(usuario2!=null) {
-				System.out.println("usuario existe");
-			}else {
-				//usuarioService.registroUsuario(usuario);
+			System.out.println("Before: bindingResult.hasErrors()");
+			  if (bindingResult.hasErrors()) {
+	                System.out.println("After: bindingResult.hasErrors()");
+	                return "usuario/registro.jsp";
+	               
+			  }
+		
 				usuarioService.persistirUsuarioRol(usuario);
-			}
+		
+				
 			
-			
-			return "redirect:/login";
+				 return "redirect:/home";
 		}
 		
 		/*
@@ -89,7 +91,7 @@ public class UsuarioController {
 		    cookieClearingLogoutHandler.logout(request, response, null);
 		    securityContextLogoutHandler.logout(request, response, null);
 		    
-		    return "redirect:/home";
+		    return "redirect:/login";
 		   
 		}
 		
